@@ -1,3 +1,6 @@
+import random
+
+
 def forest():
     while True:
         answer = input("The humming sound of a river is coming from the left and there is dense forest "
@@ -130,6 +133,8 @@ def forest():
 
 
 def coastline():
+    fate = {'removed': "You have removed the debris but you don't have much time.",
+            'not_removed': "You couldn't the debris in time and the island started to sank"}
     while True:
         answer = input("Which direction would like to explore first?(East/West) ")
         if answer == 'east':
@@ -173,7 +178,46 @@ def coastline():
                 else:
                     print("Invalid answer!!")
         elif answer == 'west':
-            pass
+            answer = input("You walked quite a long time towards the west of the island. There several tress just on "
+                           "the outskirts of the forest. Do you like to visit the forest or walk forward?(forest/walk) ")
+            while True:
+                if answer == 'cut':
+                    forest()
+                elif answer == 'walk':
+                    answer = input("You walked forward and found some some small tress. Do you take them or leave them?"
+                                   "(take/leave) ")
+                    while True:
+                        if answer == 'take':
+                            pass
+                        elif answer == 'leave':
+                            print("Night is falling. You hear the growls of some animals."
+                                  " At a distance you saw small cave.")
+                            answer = input("Do you wish to stay in the cave for the night or"
+                                           " stay outside and light a fire by using the tress nearby?(fire/cave) ")
+                            while True:
+                                if answer == 'cave':
+                                    print("You went inside the cave. The cave was empty and no animal was living"
+                                          "inside. You went to sleep inside the cave. There was large tremor and the "
+                                          " exit was blocked.")
+                                    answer = input("You have no vision inside the cave. What do you do now?"
+                                                   "remove the debris or give up?(remove/give up) ")
+                                    while True:
+                                        if answer == 'give up':
+                                            print("You have given up and in the morning the island sank.")
+                                            return "Game over, you died."
+                                        elif answer == 'remove':
+                                            pass
+                                        else:
+                                            print("Invalid answer!!")
+                                elif answer == 'fire':
+                                    pass
+                                else:
+                                    print("Invalid answer!!")
+                        else:
+                            print("Invalid answer!!")
+                else:
+                    print("Invalid answer!!")
+
         else:
             print("Invalid answer")
 
