@@ -1,10 +1,12 @@
 def forest():
     while True:
         answer = input("The humming sound of a river is coming from the left and there is dense forest "
-                       " of oak to the right. Which way would you like to go?(left/ right) ")
+                       " of oak to the right. Which way would you like to go?(left/right) ")
         if answer == "left":
             print("There is bunch of tress which can used to create firewood.")
             while True:
+                answer = input("Would like to cut the trees or collect water from the "
+                               "river?(cut/river) ")
                 if answer == 'cut':
                     answer = input("You have collect the wood for a fire and shelter. Would you like to go build a "
                                    " shelter near the river or the coastline?(river/coastline) ")
@@ -43,7 +45,6 @@ def forest():
                                                     print("Invalid answer")
                                         else:
                                             print("Invalid answer")
-
                                 elif answer == 'n':
                                     print("As you didn't light a fire some animal hunted you. You are dead.")
                                     return 'Game over, You are dead'
@@ -59,14 +60,16 @@ def forest():
         elif answer == "right":
             print("There is bunch of tress which can used to create firewood.")
             while True:
-                answer = input("Would you like to cut the wood as firewood or collect water from the river?(y/n) ")
-                if answer == 'y':
+                answer = input("Would you like to cut the wood as firewood or collect"
+                               " water from the river?(firewood/water) ")
+                if answer == 'firewood':
                     while True:
                         answer = input(
                             "You have collect the wood for a fire and shelter. Would you like to go build a shelter "
                             "near the river or the coastline?(river/coastline) ")
                         if answer == 'river':
-                            print("Numerous hippos were near the river and you were spotted.You were killed by the hippos.")
+                            print("Numerous hippos were near the river and you were spotted"
+                                  ".You were killed by the hippos.")
                             return 'Game over.'
                         elif answer == 'coastline':
                             print("You have come to the coastline. You have started to create a shelter.")
@@ -88,12 +91,12 @@ def forest():
                                                 answer = input("You have collected the wood. Would like to build a raft"
                                                                " or wait for some sign of a ship?(build/wait) ")
                                                 if answer == 'build':
-                                                    print("You have built the raft and set the sail. You were rescued by a "
-                                                          "merchant chip.")
+                                                    print("You have built the raft and set the sail. You were rescued "
+                                                          "by a merchant chip.")
                                                     return 'Well done, you have escaped the island.'
                                                 elif answer == 'wait':
                                                     print("It's day two all your food is finished and no ship has been "
-                                                          "viewed. was a large tremor and the island sank.")
+                                                          "viewed. There was a large tremor and the island sank.")
                                                     return 'Game over, You died.'
                                                 else:
                                                     print("Invalid answer")
@@ -107,8 +110,8 @@ def forest():
                                     print("Invalid answer")
                         else:
                             print("Invalid answer")
-                elif answer == 'n':
-                    answer = input("Would like to go back to the coastline or river?(river/coastline) ")
+                elif answer == 'water':
+                    answer = input("Would like to go back to the coastline or explore by the river?(river/coastline) ")
                     while True:
                         if answer == 'river':
                             print("Numerous hippos were near the river "
@@ -120,14 +123,15 @@ def forest():
                             return 'Game over, you died.'
                         else:
                             print("Invalid answer.")
-
+                else:
+                    print("Invalid answer!!")
         else:
             print("Invalid answer.")
 
 
 def coastline():
-    answer = input("Which direction would like to explore first?(East/West) ")
     while True:
+        answer = input("Which direction would like to explore first?(East/West) ")
         if answer == 'east':
             print("You have walked quite a while now. There are several rows of coconut tress.")
             answer = input("You have spotted a tribe ahead. What would like to do?(Communicate/Run away) ")
