@@ -134,8 +134,8 @@ def coastline():
         answer = input("Which direction would like to explore first?(East/West) ")
         if answer == 'east':
             print("You have walked quite a while now. There are several rows of coconut tress.")
-            answer = input("You have spotted a tribe ahead. What would like to do?(Communicate/Run away) ")
             while True:
+                answer = input("You have spotted a tribe ahead. What would like to do?(Communicate/Run away) ")
                 if answer == 'communicate':
                     while True:
                         print("You tried to communicate to the tribe. They feel threatened but soon "
@@ -147,9 +147,9 @@ def coastline():
                                 print("You stayed for the night with the tribe. You offered them"
                                       " the food you were given. They became amazed and happy with your gifts.")
                                 answer = input("The tribe men have small boats. Would you like to ask them for"
-                                               " a boat for a someone like you can't the apocalypse or would be "
-                                               "wanna batman and go on own?(ask/batman) ")
-                                if answer == 'myself':
+                                               " a boat for someone like you can't escape the apocalypse or you "
+                                               "wanna be batman and go on your own?(ask/batman) ")
+                                if answer == 'batman':
                                     print("You couldn't escape the island on time. You died.")
                                     return 'Game over, You died.'
                                 elif answer == 'ask':
