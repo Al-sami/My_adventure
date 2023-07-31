@@ -132,9 +132,96 @@ def forest():
             print("Invalid answer.")
 
 
-def coastline():
+def west():
     fate = {'removed': "You have removed the debris but you don't have much time.",
             'not_removed': "You couldn't remove the debris in time and the island started to sank."}
+    while True:
+        answer = input(
+            "You walked quite a long time towards the west of the island. There several tress just on "
+            "the outskirts of the forest. Do you like to visit "
+            "the forest or walk forward?(forest/walk) ")
+        if answer == 'forest':
+            forest()
+        elif answer == 'walk':
+            while True:
+                answer = input(
+                    "You walked forward and found some some small tress. Do you take them or leave them?"
+                    "(take/leave) ")
+                if answer == 'take':
+                    print("You took the plants and wasted a lot of time. Night fall and you were "
+                          " hunted.")
+                    return "Game over!! You died."
+                elif answer == 'leave':
+                    print("Night is falling. You hear the growls of some animals."
+                          " At a distance you saw small cave.")
+                    while True:
+                        answer = input("Do you wish to stay in the cave for the night or"
+                                       " stay outside and light a fire by using the tress nearby?(fire/cave) ")
+                        if answer == 'cave':
+                            print("You went inside the cave. The cave was empty and no animal was living"
+                                  "inside. You went to sleep inside the cave. There was large tremor and the "
+                                  " exit was blocked.")
+                            while True:
+                                answer = input("You have no vision inside the cave. What do you do now?"
+                                               " Remove the debris or give up?(remove/give up) ")
+                                if answer == 'give up':
+                                    print("You have given up and in the morning the island sank.")
+                                    return "Game over, you died."
+                                elif answer == 'remove':
+                                    my_fate = random.choice(list(fate.items()))
+                                    key, val = my_fate[0], my_fate[1]
+                                    if key == "removed":
+                                        print(val)
+                                        while True:
+                                            answer = input("Coming out from the cave you saw some waste a few "
+                                                           "metres away. Do you go and observe the waste or "
+                                                           "go towards the East of the island? Remember time "
+                                                           "is valuable.(waste/East) ")
+                                            if answer == 'waste':
+                                                while True:
+                                                    answer = input("You saw some big gallons of plastic bottles"
+                                                                   " and some nylon clothing in the waste. "
+                                                                   "What would you like to do now? (Walk East/"
+                                                                   " some non-reliable raft) ")
+                                                    if answer == 'some non-reliable raft':
+                                                        print("You created a raft in time and set sail."
+                                                              " You were rescued by a merchant ship.")
+                                                        return "You escaped the island."
+                                                    elif answer == 'East':
+                                                        print(
+                                                            "You started walking towards the East. "
+                                                            "You heard a large tremor and a rock came "
+                                                            "flying towards you.")
+                                                        return "Game over!! You died."
+                                                    else:
+                                                        print("Invalid answer!!")
+                                            elif answer == 'East':
+                                                print("You started walking towards the East. You heard a large"
+                                                      " tremor and a rock came flying towards you.")
+                                                return "Game over!! You died."
+                                            else:
+                                                print("Invalid answer")
+                                    else:
+                                        print(val)
+                                        return "Game over!! You died."
+
+                                else:
+                                    print("Invalid answer!!")
+                        elif answer == 'fire':
+                            print("You started lighting the fire. You heard growls but "
+                                  "no animal attacked you. At one point you fell asleep."
+                                  " The fire was extinguished. A carnivore attacked you"
+                                  " and you died.")
+                            return "Game over!! You died."
+                        else:
+                            print("Invalid answer!!")
+                else:
+                    print("Invalid answer!!")
+        else:
+            print("Invalid answer!!")
+
+
+def coastline():
     while True:
         answer = input("Which direction would like to explore first?(East/West) ")
         if answer == 'east':
@@ -175,95 +262,14 @@ def coastline():
                                        "to go now?(forest/west side) ")
                         if answer == "forest":
                             return forest()
+                        elif answer == "west side":
+                            return west()
+                        else:
+                            print("Invalid answer.")
                 else:
                     print("Invalid answer!!")
         elif answer == 'west':
-            while True:
-                answer = input(
-                    "You walked quite a long time towards the west of the island. There several tress just on "
-                    "the outskirts of the forest. Do you like to visit "
-                    "the forest or walk forward?(forest/walk) ")
-                if answer == 'forest':
-                    forest()
-                elif answer == 'walk':
-                    while True:
-                        answer = input(
-                            "You walked forward and found some some small tress. Do you take them or leave them?"
-                            "(take/leave) ")
-                        if answer == 'take':
-                            print("You took the plants and wasted a lot of time. Night fall and you were "
-                                  " hunted.")
-                            return "Game over!! You died."
-                        elif answer == 'leave':
-                            print("Night is falling. You hear the growls of some animals."
-                                  " At a distance you saw small cave.")
-                            while True:
-                                answer = input("Do you wish to stay in the cave for the night or"
-                                               " stay outside and light a fire by using the tress nearby?(fire/cave) ")
-                                if answer == 'cave':
-                                    print("You went inside the cave. The cave was empty and no animal was living"
-                                          "inside. You went to sleep inside the cave. There was large tremor and the "
-                                          " exit was blocked.")
-                                    while True:
-                                        answer = input("You have no vision inside the cave. What do you do now?"
-                                                       " Remove the debris or give up?(remove/give up) ")
-                                        if answer == 'give up':
-                                            print("You have given up and in the morning the island sank.")
-                                            return "Game over, you died."
-                                        elif answer == 'remove':
-                                            my_fate = random.choice(list(fate.items()))
-                                            key, val = my_fate[0], my_fate[1]
-                                            if key == "removed":
-                                                print(val)
-                                                while True:
-                                                    answer = input("Coming out from the cave you saw some waste a few "
-                                                                   "metres away. Do you go and observe the waste or "
-                                                                   "go towards the East of the island? Remember time "
-                                                                   "is valuable.(waste/East) ")
-                                                    if answer == 'waste':
-                                                        while True:
-                                                            answer = input("You saw some big gallons of plastic bottles"
-                                                                           " and some nylon clothing in the waste. "
-                                                                           "What would you like to do now? (Walk East/"
-                                                                           " some non-reliable raft) ")
-                                                            if answer == 'some non-reliable raft':
-                                                                print("You created a raft in time and set sail."
-                                                                      " You were rescued by a merchant ship.")
-                                                                return "You escaped the island."
-                                                            elif answer == 'East':
-                                                                print(
-                                                                    "You started walking towards the East. "
-                                                                    "You heard a large tremor and a rock came "
-                                                                    "flying towards you.")
-                                                                return "Game over!! You died."
-                                                            else:
-                                                                print("Invalid answer!!")
-                                                    elif answer == 'East':
-                                                        print("You started walking towards the East. You heard a large"
-                                                              " tremor and a rock came flying towards you.")
-                                                        return "Game over!! You died."
-                                                    else:
-                                                        print("Invalid answer")
-
-                                            else:
-                                                print(val)
-                                                return "Game over!! You died."
-
-                                        else:
-                                            print("Invalid answer!!")
-                                elif answer == 'fire':
-                                    print("You started lighting the fire. You heard growls but "
-                                          "no animal attacked you. At one point you fell asleep."
-                                          " The fire was extinguished. A carnivore attacked you"
-                                          " and you died.")
-                                    return "Game over!! You died."
-                                else:
-                                    print("Invalid answer!!")
-                        else:
-                            print("Invalid answer!!")
-                else:
-                    print("Invalid answer!!")
-
+            return west()
         else:
             print("Invalid answer")
 
